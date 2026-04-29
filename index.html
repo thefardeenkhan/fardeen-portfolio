@@ -287,7 +287,7 @@
     });
 
     const videoFiles = [
-      "Myfirst_Direction.mp4", "bookwithmusic.mp4", "excellencewithmusic.mp4", "firstanimation_AEA_DACG.mp4", "firstvlogFardeen.mp4", "mixedanimation.mp4", "sigmundfreud.mp4", "singleclip2.mov", "thefinaltypewriter.mp4", "thenightwemet_5.mov"
+      "Myfirst_Direction.mp4", "bookwithmusic.mp4", "excellencewithmusic.mp4", "firstanimation_AEA_DACG.mp4", "firstvlogFardeen.mp4", "mixedanimation.mp4", "sigmundfreud.mp4", "singleclip2.mp4", "thefinaltypewriter.mp4", "thenightwemet_5.mp4"
     ];
     const vg = document.getElementById('videoGrid');
     videoFiles.forEach((file, i) => {
@@ -295,7 +295,7 @@
       card.className = 'video-card';
       card.style.padding = '0';
       card.style.overflow = 'hidden';
-      const ext = file.endsWith('.mov') ? 'video/quicktime' : 'video/mp4';
+      const ext = 'video/mp4';
       card.innerHTML = `
         <video preload="metadata" playsinline muted controls loop poster="Profile/graded_9.19.1.png" style="width:100%; height:auto; display:block;" onclick="event.stopPropagation()" onerror="this.parentElement.style.display='none'" onloadedmetadata="if(this.videoWidth===0){this.parentElement.style.display='none'}">
           <source src="videos/${file}" type="${ext}">
