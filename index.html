@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Fardeen Akhtar Khan — photographer, graphic designer, and video editor." />
+  <title>Fardeen Akhtar Khan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0a0a0a;
+      color: #d4d0ca;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    a { color: #b8b4ad; text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: #f0ede8; }
+    nav {
+      padding: 2rem 2rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #f0ede8;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      font-size: .78rem;
+      letter-spacing: .04em;
+      color: rgba(212,208,202,.65);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #f0ede8; }
+    #about {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    @media(max-width:800px){ #about { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 2rem; } }
+    .about-photo {
+      width: 200px;
+      aspect-ratio: 4 / 5;
+      background: #141414;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.1);
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    @media(max-width:500px){ .about-photo { width: 100%; } }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #f0ede8;
+      margin-bottom: 1.6rem;
+      line-height: 1.1;
+    }
+    .about-info p { margin-bottom: .5rem; color: #a8a49d; font-size: .92rem; }
+    .about-info p strong { color: #d4d0ca; font-weight: 400; }
+    .about-links {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      font-size: .82rem;
+      color: rgba(212,208,202,.45);
+    }
+    .about-links a { color: rgba(212,208,202,.45); text-decoration: none; transition: color .2s; }
+    .about-links a:hover { color: #f0ede8; }
+    .about-links span { color: rgba(255,255,255,.15); }
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    @media(max-width:640px){ .section { padding: 2.5rem 1.5rem; } }
+    .section-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(212,208,202,.35); margin-bottom: .5rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; font-style: italic; color: #f0ede8; margin-bottom: 2rem; }
+    .insta-intro { font-size: .82rem; color: rgba(212,208,202,.4); margin-bottom: 2rem; font-style: italic; }
+    .insta-grid { columns: 3; column-gap: 12px; column-fill: balance; }
+    @media(max-width:900px){ .insta-grid { columns: 2; } }
+    @media(max-width:500px){ .insta-grid { columns: 1; } }
+    .insta-item { break-inside: avoid; margin-bottom: 12px; }
+    .insta-item .instagram-media { min-width: unset !important; max-width: 100% !important; width: 100% !important; border-radius: 3px !important; border: 1px solid rgba(255,255,255,.07) !important; background: #111 !important; }
+    .insta-placeholder { background: #111111; border: 1px solid rgba(255,255,255,.06); border-radius: 3px; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+    .insta-placeholder .ph-top { display: flex; align-items: center; gap: .7rem; }
+    .ph-avatar { width: 32px; height: 32px; border-radius: 50%; background: #1e1e1e; border: 1px solid rgba(255,255,255,.07); flex-shrink: 0; }
+    .ph-name { font-size: .78rem; color: rgba(212,208,202,.5); }
+    .ph-img { width: 100%; background: #161616; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+    .ph-img svg { opacity: .08; }
+    .ph-caption { font-size: .75rem; color: rgba(212,208,202,.25); line-height: 1.5; }
+    .ph-note { font-size: .65rem; letter-spacing: .06em; color: rgba(212,208,202,.15); text-transform: uppercase; margin-top: .3rem; }
+    .photo-masonry, .design-grid, .video-grid { column-fill: balance; }
+    .photo-masonry { columns: 4; column-gap: 8px; }
+    @media(max-width:1000px){ .photo-masonry, .design-grid { columns: 3; } }
+    @media(max-width:640px){ .photo-masonry, .design-grid { columns: 2; } }
+    .photo-card, .design-card, .video-card { break-inside: avoid; margin-bottom: 8px; background: #111; border: 1px solid rgba(255,255,255,.05); border-radius: 3px; overflow: hidden; position: relative; cursor: pointer; transition: border-color .25s; }
+    .photo-card:hover, .design-card:hover, .video-card:hover { border-color: rgba(255,255,255,.13); }
+    .photo-hover { position: absolute; inset: 0; background: rgba(10,10,10,.5); display: flex; align-items: flex-end; padding: .7rem; opacity: 0; transition: opacity .25s; }
+    .photo-card:hover .photo-hover { opacity: 1; }
+    .photo-num { font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.45); }
+    .design-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+    .design-sym { font-size: 1.6rem; opacity: .06; }
+    .design-n { font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.07); }
+    .design-line { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(212,208,202,.2); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+    .design-card:hover .design-line { transform: scaleX(1); }
+    .vplay { width: 40px; height: 40px; border: 1px solid rgba(212,208,202,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: border-color .25s, transform .25s; position: absolute; z-index: 10; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    .video-card:hover .vplay { border-color: rgba(212,208,202,.6); transform: translate(-50%, -50%) scale(1.08); }
+    .vplay svg { fill: rgba(212,208,202,.3); margin-left: 2px; transition: fill .25s; }
+    .video-card:hover .vplay svg { fill: rgba(212,208,202,.8); }
+    .vnum { position: absolute; top: .7rem; left: .7rem; font-size: .52rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.15); background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 2px; }
+    .v-hover-text { position: absolute; bottom: .7rem; right: .7rem; font-size: .45rem; color: rgba(212,208,202,.5); text-transform: uppercase; letter-spacing: .05em; background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 3px; opacity: 0; transition: opacity 0.2s; }
+    .video-card:hover .v-hover-text { opacity: 1; }
+    #lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
+    #lightbox.show { display: flex; opacity: 1; }
+    #lb-close { position: absolute; top: 1.5rem; right: 1.5rem; color: rgba(255,255,255,0.6); font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: color .2s; z-index: 1001; padding: 10px; }
+    #lb-close:hover { color: #fff; }
+    #lb-content { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 100%; }
+    .foot-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; color: rgba(212,208,202,.4); }
+    .foot-copy { font-size: .7rem; letter-spacing: .05em; color: rgba(212,208,202,.2); }
+    #mCtrl { position: fixed; bottom: 1.8rem; right: 1.5rem; z-index: 200; display: flex; align-items: center; gap: .5rem; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.3); background: rgba(10,10,10,.9); border: 1px solid rgba(255,255,255,.07); border-radius: 40px; padding: .5rem 1rem; cursor: pointer; opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s, color .2s; }
+    @media(max-width:640px){ #mCtrl { right: .8rem; left: .8rem; bottom: 1rem; justify-content: center; } }
+    #mCtrl.show { opacity: 1; transform: none; }
+    #mCtrl:hover { color: rgba(212,208,202,.8); }
+    .mb { display: flex; gap: 2px; align-items: flex-end; height: 10px; }
+    .mb span { display: block; width: 2px; background: currentColor; border-radius: 2px; animation: mbar .7s ease infinite alternate; }
+    .mb span:nth-child(1){ height: 3px; animation-delay: 0s; }
+    .mb span:nth-child(2){ height: 8px; animation-delay: .12s; }
+    .mb span:nth-child(3){ height: 5px; animation-delay: .24s; }
+    #mCtrl.paused .mb span { animation-play-state: paused; }
+    @keyframes mbar { from{transform:scaleY(.3)} to{transform:scaleY(1)} }
+  </style>
+</head>
+<body>
+  <div id="lightbox" onclick="closeLightbox()">
+    <div id="lb-close">Close</div>
+    <div id="lb-container" onclick="event.stopPropagation()"></div>
+  </div>
+
+  <audio id="bgAudio" loop>
+    <source src="music/vidssave.com THE BATMAN Theme - Michael Giacchino (Main Trailer Music) 240P.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div id="mCtrl" onclick="toggleMusic()">
+    <div class="mb"><span></span><span></span><span></span></div>
+    <span id="mLabel">Music</span>
+  </div>
+
+  <nav>
+    <a class="nav-name" href="#">Fardeen Akhtar Khan</a>
+    <ul class="nav-links">
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#photography">Photography</a></li>
+      <li><a href="#graphic-design">Design</a></li>
+      <li><a href="#video-edits">Video</a></li>
+    </ul>
+  </nav>
+
+  <div id="about">
+    <div class="about-photo" style="background:transparent; border:none; padding:0;">
+      <img src="Profile/graded_9.19.1.png" alt="Fardeen" loading="lazy" onerror="this.style.display='none'" />
+    </div>
+    <div class="about-info">
+      <h1>Fardeen Akhtar Khan</h1>
+      <p><strong>photographer</strong>, graphic designer & video editor</p>
+      <p>I feel all aligned when I do things which make me happy and motivated.</p>
+      <p style="margin-top:.8rem">based in India</p>
+      <div class="about-links">
+        <a href="https://instagram.com/thefardeenkhann" target="_blank" rel="noreferrer noopener">instagram</a>
+        <span>·</span>
+        <a href="mailto:thefardeenkhann@gmail.com">email</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="instagram">
+    <div class="section-label">From the feed</div>
+    <div class="section-title"><a href="https://instagram.com/thefardeenkhann" target="_blank" rel="noreferrer noopener" style="color:inherit; text-decoration:none;">Instagram ↗</a></div>
+    <p class="insta-intro">These things makes me feel alive included and loved,..Things I make :) Have a look.</p>
+    <div class="insta-grid" id="instaGrid"></div>
+  </div>
+
+  <div class="section" id="photography">
+    <div class="section-label">Stills</div>
+    <div class="section-title">Photography</div>
+    <div class="photo-masonry" id="photoGrid"></div>
+  </div>
+
+  <div class="section" id="graphic-design">
+    <div class="section-label">Visuals</div>
+    <div class="section-title">Graphic Design</div>
+    <div class="design-grid" id="designGrid"></div>
+  </div>
+
+  <div class="section" id="video-edits">
+    <div class="section-label">Motion</div>
+    <div class="section-title">Video Edits</div>
+    <div class="video-grid" id="videoGrid"></div>
+  </div>
+
+  <footer>
+    <div class="foot-name">Fardeen Akhtar Khan</div>
+    <div class="foot-copy">want to hire me <a href="mailto:fardeenkhansays@gmail.com" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">contact</a> © 2026</div>
+  </footer>
+
+  <script>
+    const instaLinks = [
+      "https://www.instagram.com/reel/DWq_V9aj2Yq/", "https://www.instagram.com/reel/DTpm2nKjR7d/", "https://www.instagram.com/p/DWeENNyjc6k/", "https://www.instagram.com/reel/DUi5pMQDQ7I/", "https://www.instagram.com/reel/DMVTmwgvz70/", "https://www.instagram.com/reel/DTgDYtxjRdn/", "https://www.instagram.com/reel/DP1G_eTAU2k/", "https://www.instagram.com/reel/DUxvbQIDew5/", "https://www.instagram.com/p/DW4fb6rDTIc/", "https://www.instagram.com/p/DWwTqLcj2Qc/", "https://www.instagram.com/p/DN6VNXTk8GT/", "https://www.instagram.com/p/DVEea5sk_D7/", "https://www.instagram.com/p/DUtaulzDSFC/", "https://www.instagram.com/p/DU3mF2ujfxR/"
+    ];
+    const igGrid = document.getElementById('instaGrid');
+    instaLinks.forEach(link => {
+      const item = document.createElement('div');
+      item.className = 'insta-item';
+      item.innerHTML = `
+        <blockquote class="instagram-media" data-instgrm-permalink="${link}" data-instgrm-version="14" style="background:#111; border:0; border-radius:3px; margin: 1px; max-width:540px; min-width:326px; padding:0; width:100%;"></blockquote>
+      `;
+      igGrid.appendChild(item);
+    });
+    setTimeout(() => { window.instgrm?.Embeds?.process?.(); }, 500);
+
+    const photoFiles = [
+      "Graded1_1.17.1.png", "Nalasopara_1.134.1.png", "Nalasopara_1.136.1.png", "Still 2026-01-26 012018_1.102.1.png", "Still 2026-01-26 012018_1.103.1.png", "Still 2026-01-26 012018_1.105.1.png", "Still 2026-01-26 012018_1.93.1.png", "Still 2026-01-26 012018_1.94.1.png", "Still 2026-02-10 201507_1.20.1.png", "Still 2026-02-10 201507_1.79.1.png", "bookpublish_1.38.1.png", "f1_1.25.1.png", "g1_4.11.1.png", "g1_5.5.1.png", "g1_6.4.1.png", "g2_1.33.1.png", "graded1_1.11.1.png", "graded1_1.19.1.png", "graded1_1.30.1.png", "graded1_1.32.1.png", "graded1_1.36.1.png", "graded1_1.4.2.png", "graded1_1.43.1.png", "graded1_1.52.1.png", "graded1_1.53.1.png", "graded1_1.6.1.png", "graded1_1.60.1.png", "graded1_1.66.1 2.png", "graded1_1.66.1.png", "graded1_1.8.1.png", "photography_day1_1.1.1.png", "photography_day1_1.3.1.png", "photography_day1_1.4.1.png", "photography_day1_1.7.1.png"
+    ];
+    const pg = document.getElementById('photoGrid');
+    photoFiles.forEach((file, i) => {
+      const card = document.createElement('div');
+      card.className = 'photo-card';
+      card.style.padding = '0';
+      card.onclick = () => openLightbox(`photos/${file}`, 'img');
+      card.innerHTML = `
+        <img src="photos/${file}" loading="lazy" alt="photo ${i + 1}" style="width:100%; height:auto; display:block;" onerror="this.parentElement.style.display='none'" />
+        <div class="photo-hover"><span class="photo-num">Photo ${String(i + 1).padStart(2, '0')}</span></div>
+      `;
+      pg.appendChild(card);
+    });
+
+    const designFiles = [
+      "CB_1.png", "Car.png", "Dhurandharr.png", "Document.png", "Group.png", "Migrane.png", "abnormal.png", "bemy.png", "darling.png", "delusional.png", "drawwithemotions.png", "goodbye.png", "leave.png", "love2.png", "meowastic1.png", "saddest.png", "sigmand.png", "thatslife.png", "twofaces.png", "twofaces2.png", "u7highquality.png", "wemet.png"
+    ];
+    const dg = document.getElementById('designGrid');
+    designFiles.forEach(file => {
+      const card = document.createElement('div');
+      card.className = 'design-card';
+      card.style.padding = '0';
+      card.style.overflow = 'hidden';
+      card.onclick = () => openLightbox(`designs/${file}`, 'img');
+      card.innerHTML = `
+        <img src="designs/${file}" loading="lazy" alt="design" style="width:100%; height:auto; display:block;" onerror="this.parentElement.style.display='none'" />
+        <div class="design-line"></div>
+      `;
+      dg.appendChild(card);
+    });
+
+    const videoFiles = [
+      "Myfirst_Direction.mp4", "bookwithmusic.mp4", "excellencewithmusic.mp4", "firstanimation_AEA_DACG.mp4", "firstvlogFardeen.mp4", "mixedanimation.mp4", "sigmundfreud.mp4", "singleclip2.mov", "thefinaltypewriter.mp4", "thenightwemet_5.mov"
+    ];
+    const vg = document.getElementById('videoGrid');
+    videoFiles.forEach((file, i) => {
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.style.padding = '0';
+      card.style.overflow = 'hidden';
+      card.onclick = () => openLightbox(`videos/${file}`, 'video');
+      card.innerHTML = `
+        <video src="videos/${file}" preload="none" playsinline muted loop style="width:100%; height:auto; display:block;" onerror="this.parentElement.style.display='none'" onloadedmetadata="if(this.videoWidth===0){this.parentElement.style.display='none'}"></video>
+        <div class="vnum">Edit ${String(i + 1).padStart(2, '0')}</div>
+        <div class="v-hover-text">Tap to open • Hover to preview</div>
+        <div class="vplay"><svg width="11" height="13" viewBox="0 0 18 20"><path d="M1 1l16 9L1 19V1z"/></svg></div>
+      `;
+      vg.appendChild(card);
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lbContainer = document.getElementById('lb-container');
+    function openLightbox(src, type) {
+      lbContainer.innerHTML = '';
+      if (type === 'img') {
+        lbContainer.innerHTML = `<img id="lb-content" src="${src}" loading="lazy" />`;
+      } else if (type === 'video') {
+        lbContainer.innerHTML = `<video id="lb-content" src="${src}" controls autoplay loop playsinline style="max-width:100%; max-height:90vh;"></video>`;
+      }
+      lightbox.style.display = 'flex';
+      setTimeout(() => lightbox.classList.add('show'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('show');
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+        lbContainer.innerHTML = '';
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
+    window.closeLightbox = closeLightbox;
+
+    const audio = document.getElementById('bgAudio');
+    const mCtrl = document.getElementById('mCtrl');
+    const mLabel = document.getElementById('mLabel');
+    const pSec = document.getElementById('photography');
+    const dSec = document.getElementById('graphic-design');
+    let musicOn = true;
+    let fadeT = null;
+    let shown = false;
+    let audioUnlocked = false;
+    audio.volume = 0;
+
+    function unlockAudio() {
+      if (!audioUnlocked) {
+        audio.play().then(() => {
+          if (!inS(pSec) && !inS(dSec)) audio.pause();
+          audioUnlocked = true;
+        }).catch(() => {});
+        document.removeEventListener('click', unlockAudio);
+        document.removeEventListener('touchstart', unlockAudio);
+      }
+    }
+    document.addEventListener('click', unlockAudio);
+    document.addEventListener('touchstart', unlockAudio);
+
+    function inS(section) {
+      const r = section.getBoundingClientRect();
+      return r.top < window.innerHeight * .65 && r.bottom > window.innerHeight * .2;
+    }
+    function fadeIn() {
+      if (fadeT) clearInterval(fadeT);
+      if (audio.paused && musicOn && audioUnlocked) audio.play().catch(() => {});
+      fadeT = setInterval(() => {
+        if (audio.volume < .65) audio.volume = Math.min(.65, audio.volume + .02);
+        else clearInterval(fadeT);
+      }, 70);
+    }
+    function fadeOut() {
+      if (fadeT) clearInterval(fadeT);
+      fadeT = setInterval(() => {
+        if (audio.volume > .01) audio.volume = Math.max(0, audio.volume - .02);
+        else { clearInterval(fadeT); audio.pause(); }
+      }, 70);
+    }
+    window.toggleMusic = function() {
+      musicOn = !musicOn;
+      if (!musicOn) { fadeOut(); mCtrl.classList.add('paused'); mLabel.textContent = 'Muted'; }
+      else { if (inS(pSec) || inS(dSec)) fadeIn(); mCtrl.classList.remove('paused'); mLabel.textContent = 'Music'; }
+    };
+    window.addEventListener('scroll', () => {
+      const zone = inS(pSec) || inS(dSec);
+      if (zone) {
+        if (musicOn) fadeIn();
+        if (!shown) { mCtrl.classList.add('show'); shown = true; }
+      } else fadeOut();
+    }, { passive: true });
+
+    [pSec, dSec].forEach(sec => {
+      sec.addEventListener('touchstart', () => { unlockAudio(); if (musicOn && audio.paused && audioUnlocked) fadeIn(); }, { passive: true });
+      sec.addEventListener('click', () => { unlockAudio(); if (musicOn && audio.paused && audioUnlocked) fadeIn(); });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+[debug] [2026-04-29T15:59:32.500Z] ----------------------------------------------------------------------
+[debug] [2026-04-29T15:59:32.502Z] Command:       /usr/local/bin/node /usr/local/bin/firebase projects:create --display-name Fardeen Portfolio
+[debug] [2026-04-29T15:59:32.502Z] CLI Version:   15.15.0
+[debug] [2026-04-29T15:59:32.502Z] Platform:      darwin
+[debug] [2026-04-29T15:59:32.502Z] Node Version:  v24.13.0
+[debug] [2026-04-29T15:59:32.502Z] Time:          Wed Apr 29 2026 21:29:32 GMT+0530 (India Standard Time)
+[debug] [2026-04-29T15:59:32.502Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-29T15:59:32.507Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-29T15:59:32.507Z] > authorizing via signed-in user (fardeenkhansays@gmail.com)
+[debug] [2026-04-29T15:59:39.255Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:39.255Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:39.256Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2026-04-29T15:59:39.256Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"fardeen-portfolio-site"}
+[debug] [2026-04-29T15:59:39.859Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2026-04-29T15:59:39.859Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_AVAILABLE","suggestedProjectId":"fardeen-portfolio-site"}
+[debug] [2026-04-29T15:59:39.863Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:39.863Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:39.863Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2026-04-29T15:59:39.863Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"fardeen-portfolio-site","name":"Fardeen Portfolio"}
+[debug] [2026-04-29T15:59:41.480Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2026-04-29T15:59:41.480Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.5997590713699838082"}
+[debug] [2026-04-29T15:59:41.481Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:41.481Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:41.482Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5997590713699838082 [none]
+[debug] [2026-04-29T15:59:42.892Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5997590713699838082 200
+[debug] [2026-04-29T15:59:42.893Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5997590713699838082 {"name":"operations/create_project.global.5997590713699838082"}
+[debug] [2026-04-29T15:59:43.394Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-04-29T15:59:43.395Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:43.395Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:43.395Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5997590713699838082 [none]
+[debug] [2026-04-29T15:59:43.718Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5997590713699838082 200
+[debug] [2026-04-29T15:59:43.718Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5997590713699838082 {"name":"operations/create_project.global.5997590713699838082","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"14660965810","projectId":"fardeen-portfolio-site","lifecycleState":"ACTIVE","name":"Fardeen Portfolio","createTime":"2026-04-29T15:59:41.194Z"}}
+[debug] [2026-04-29T15:59:43.720Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:43.720Z] Checked if tokens are valid: true, expires at: 1777481933048
+[debug] [2026-04-29T15:59:43.720Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/fardeen-portfolio-site:addFirebase [none]
+[debug] [2026-04-29T15:59:45.254Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/fardeen-portfolio-site:addFirebase 403
+[debug] [2026-04-29T15:59:45.254Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/fardeen-portfolio-site:addFirebase {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-04-29T15:59:45.255Z] Request to https://firebase.googleapis.com/v1beta1/projects/fardeen-portfolio-site:addFirebase had HTTP Error: 403, The caller does not have permission
+[debug] [2026-04-29T15:59:45.257Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/fardeen-portfolio-site:addFirebase had HTTP Error: 403, The caller does not have permission
+    at responseToError (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:53:12)
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:333:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[error] 
+[error] Error: Failed to add Firebase to Google Cloud Platform project. See firebase-debug.log for more info.
