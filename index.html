@@ -136,6 +136,7 @@
     .design-n { font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.07); }
     .design-line { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(212,208,202,.2); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
     .design-card:hover .design-line { transform: scaleX(1); }
+    .video-card video { width: 100%; height: auto; min-height: 160px; background: #000; display: block; }
     .vplay { width: 40px; height: 40px; border: 1px solid rgba(212,208,202,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: border-color .25s, transform .25s; position: absolute; z-index: 10; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
     .video-card:hover .vplay { border-color: rgba(212,208,202,.6); transform: translate(-50%, -50%) scale(1.08); }
     .vplay svg { fill: rgba(212,208,202,.3); margin-left: 2px; transition: fill .25s; }
@@ -143,6 +144,7 @@
     .vnum { position: absolute; top: .7rem; left: .7rem; font-size: .52rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.15); background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 2px; }
     .v-hover-text { position: absolute; bottom: .7rem; right: .7rem; font-size: .45rem; color: rgba(212,208,202,.5); text-transform: uppercase; letter-spacing: .05em; background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 3px; opacity: 0; transition: opacity 0.2s; }
     .video-card:hover .v-hover-text { opacity: 1; }
+    .video-link { position: absolute; bottom: .7rem; left: .7rem; font-size: .65rem; color: rgba(212,208,202,.8); text-decoration: underline; z-index: 11; }
     #lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
     #lightbox.show { display: flex; opacity: 1; }
     #lb-close { position: absolute; top: 1.5rem; right: 1.5rem; color: rgba(255,255,255,0.6); font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: color .2s; z-index: 1001; padding: 10px; }
@@ -293,13 +295,22 @@
       card.className = 'video-card';
       card.style.padding = '0';
       card.style.overflow = 'hidden';
-      card.onclick = () => openLightbox(`videos/${file}`, 'video');
+      const ext = file.endsWith('.mov') ? 'video/quicktime' : 'video/mp4';
       card.innerHTML = `
-        <video src="videos/${file}" preload="metadata" playsinline muted controls loop style="width:100%; height:auto; display:block;" onerror="this.parentElement.style.display='none'" onloadedmetadata="if(this.videoWidth===0){this.parentElement.style.display='none'}"></video>
+        <video preload="metadata" playsinline muted controls loop poster="Profile/graded_9.19.1.png" style="width:100%; height:auto; display:block;" onclick="event.stopPropagation()" onerror="this.parentElement.style.display='none'" onloadedmetadata="if(this.videoWidth===0){this.parentElement.style.display='none'}">
+          <source src="videos/${file}" type="${ext}">
+          Your browser does not support this video format.
+        </video>
         <div class="vnum">Edit ${String(i + 1).padStart(2, '0')}</div>
         <div class="v-hover-text">Tap to open • Hover to preview</div>
         <div class="vplay"><svg width="11" height="13" viewBox="0 0 18 20"><path d="M1 1l16 9L1 19V1z"/></svg></div>
+        <a class="video-link" href="videos/${file}" target="_blank" rel="noreferrer noopener">Open in new tab</a>
       `;
+      const videoElement = card.querySelector('video');
+      if (videoElement) {
+        videoElement.addEventListener('click', e => e.stopPropagation());
+      }
+      card.addEventListener('click', () => openLightbox(`videos/${file}`, 'video'));
       vg.appendChild(card);
     });
 
