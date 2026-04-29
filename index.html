@@ -295,7 +295,7 @@
       card.style.overflow = 'hidden';
       card.onclick = () => openLightbox(`videos/${file}`, 'video');
       card.innerHTML = `
-        <video src="videos/${file}" preload="none" playsinline muted loop style="width:100%; height:auto; display:block;" onerror="this.parentElement.style.display='none'" onloadedmetadata="if(this.videoWidth===0){this.parentElement.style.display='none'}"></video>
+        <video src="videos/${file}" preload="metadata" playsinline muted controls loop style="width:100%; height:auto; display:block;" onerror="this.parentElement.style.display='none'" onloadedmetadata="if(this.videoWidth===0){this.parentElement.style.display='none'}"></video>
         <div class="vnum">Edit ${String(i + 1).padStart(2, '0')}</div>
         <div class="v-hover-text">Tap to open • Hover to preview</div>
         <div class="vplay"><svg width="11" height="13" viewBox="0 0 18 20"><path d="M1 1l16 9L1 19V1z"/></svg></div>
@@ -310,11 +310,15 @@
       if (type === 'img') {
         lbContainer.innerHTML = `<img id="lb-content" src="${src}" loading="lazy" />`;
       } else if (type === 'video') {
-        lbContainer.innerHTML = `<video id="lb-content" src="${src}" controls autoplay loop playsinline style="max-width:100%; max-height:90vh;"></video>`;
+        lbContainer.innerHTML = `<video id="lb-content" src="${src}" controls playsinline style="max-width:100%; max-height:90vh;"></video>`;
       }
       lightbox.style.display = 'flex';
       setTimeout(() => lightbox.classList.add('show'), 10);
       document.body.style.overflow = 'hidden';
+      const videoEl = lbContainer.querySelector('video');
+      if (videoEl) {
+        videoEl.play().catch(() => {});
+      }
     }
     function closeLightbox() {
       lightbox.classList.remove('show');
