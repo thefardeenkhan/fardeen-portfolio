@@ -150,11 +150,11 @@
     #lb-close { position: absolute; top: 1.5rem; right: 1.5rem; color: rgba(255,255,255,0.6); font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: color .2s; z-index: 1001; padding: 10px; }
     #lb-close:hover { color: #fff; }
     #lb-content { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 100%; }
+    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 2.5rem 2rem 4.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 100%; }
     .foot-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; color: rgba(212,208,202,.4); }
-    .foot-copy { font-size: .7rem; letter-spacing: .05em; color: rgba(212,208,202,.2); }
-    #mCtrl { position: fixed; bottom: 1.8rem; right: 1.5rem; z-index: 200; display: flex; align-items: center; gap: .5rem; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.3); background: rgba(10,10,10,.9); border: 1px solid rgba(255,255,255,.07); border-radius: 40px; padding: .5rem 1rem; cursor: pointer; opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s, color .2s; }
-    @media(max-width:640px){ #mCtrl { right: .8rem; left: .8rem; bottom: 1rem; justify-content: center; } }
+    .foot-copy { font-size: 1rem; letter-spacing: .05em; color: rgba(212,208,202,.2); }
+    #mCtrl { position: fixed; bottom: 1.8rem; right: 1.5rem; left: auto; z-index: 200; display: flex; align-items: center; gap: .5rem; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(212,208,202,.3); background: rgba(10,10,10,.9); border: 1px solid rgba(255,255,255,.07); border-radius: 40px; padding: .5rem 1rem; cursor: pointer; opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s, color .2s; }
+    @media(max-width:640px){ footer { flex-direction: column; align-items: center; text-align: center; padding-bottom: 6.5rem; } .foot-name, .foot-copy { width: 100%; } .foot-name { font-size: 1.05rem; } .foot-copy { font-size: 1.05rem; } #mCtrl { right: 1rem; left: auto; width: auto; min-width: 0; justify-content: center; } }
     #mCtrl.show { opacity: 1; transform: none; }
     #mCtrl:hover { color: rgba(212,208,202,.8); }
     .mb { display: flex; gap: 2px; align-items: flex-end; height: 10px; }
